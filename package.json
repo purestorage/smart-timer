@@ -1,6 +1,6 @@
 {
   "name": "@pstg/smart-timer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Timer that saves requests by delaying emits when page is hidden",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
