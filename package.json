@@ -12,12 +12,20 @@
     "build": "tsup",
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/purestorage/smart-timer.git"
+  },
+  "homepage": "https://github.com/purestorage/smart-timer?tab=readme-ov-file#smart-timer",
   "keywords": [
     "timer",
     "rxjs",
     "requestsaving"
   ],
-  "author": "Martin Vích",
+  "author": {
+    "name": "Martin Vích",
+    "url": "https://github.com/czmavi"
+  },
   "license": "Apache-2.0",
   "devDependencies": {
     "@types/jest": "^29.5.10",

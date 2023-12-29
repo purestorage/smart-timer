@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - README.md
 
+### Added
+- Author, homepage, repository into package.json
+
 ## 1.0.2 - 2023-12-29
 ### Added
 - Update README.md
