@@ -36,7 +36,7 @@ smartTimer(dueTime, intervalDuration).subscribe((value) => {
 
 And that's it. You can use `smartTimer` exactly the same way as you would use `timer` or `interval` from RXJS.
 
-## Going further
+## Going Further
 
 At Pure Storage we recognised that it doesn't make any sense to use plain timer since `smartTimer` has basicaly no dissadvantages. To ensure that it is the only timer solution used in our codebase, we created couple of eslint rules to keep everyone aware what the default is.
 
