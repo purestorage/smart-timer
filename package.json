@@ -1,5 +1,5 @@
 {
-  "name": "@purestorage/smart-timer",
+  "name": "@pstg/smart-timer",
   "version": "1.0.0",
   "description": "Timer that saves requests by delaying emits when page is hidden",
   "main": "./dist/index.js",
