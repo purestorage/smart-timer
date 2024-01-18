@@ -10,6 +10,8 @@ Truth is that on computer that is not running on battery power, the browser will
 
 Here is where Smart-Timer comes to the rescue. It allows replacing RXJS `timer` and `interval` observables with `smartTimer` which has exactly the same API but thanks to Page Visibility API it will automatically prolong the intervals for you when the user has left the page for more than 15 seconds. And it will automatically emit once the user returns resulting in immediate refresh of the data. Of course you can configure the "hidden" interval manually or even to be the same as the standard one since for some requests, for example refreshing users auth token it is not desirable change the interval at all.
 
+You can read about how the smart-timer was created in [this blog post](https://blog.purestorage.com/purely-technical/notes-from-a-hackathon-how-to-cut-down-web-requests-by-70/).
+
 ## Installation
 
 You just need to install the package from [NPM](https://www.npmjs.com/package/@pstg/smart-timer):
