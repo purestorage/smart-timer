@@ -133,7 +133,7 @@ class Subject<T> extends Stream<T> {
 export class WebsiteVisibilityObserver {
     readonly isHidden$: Subject<boolean>;
     hidden: boolean;
-    private timerHandle?: TimerHandle;
+    private timerHandle?: number;
     private readonly isHiddenDelay = 15 * 1000;
 
     constructor(
@@ -177,7 +177,7 @@ export class WebsiteVisibilityObserver {
             this.hidden = true;
             this.isHidden$.next(this.hidden);
             this.timerHandle = undefined;
-        }, this.isHiddenDelay) as unknown as TimerHandle;
+        }, this.isHiddenDelay);
     }
 
     isHidden(): boolean {
@@ -186,7 +186,7 @@ export class WebsiteVisibilityObserver {
 
     stopTimer(): void {
         if (this.timerHandle && this.window) {
-            this.window.clearTimeout(this.timerHandle as never);
+            this.window.clearTimeout(this.timerHandle);
             this.timerHandle = undefined;
         }
     }
