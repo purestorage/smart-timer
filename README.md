@@ -8,7 +8,7 @@ Do you use timers to keep your page data fresh? And did you ever wonder what hap
 
 Truth is that on computer that is not running on battery power, the browser will more or less keep running the timer. On mobile device the browser intervention will be more aggressive but still this is pretty much up to the browser to decide and there are very little resources documenting the exact behavior.
 
-Here is where Smart-Timer comes to the rescue. It allows replacing RXJS `timer` and `interval` observables with `smartTimer` which has exactly the same API but thanks to Page Visibility API it will automatically prolong the intervals for you when the user has left the page for more than 15 seconds. And it will automatically emit once the user returns resulting in immediate refresh of the data. Of course you can configure the "hidden" interval manually or even to be the same as the standard one since for some requests, for example refreshing users auth token it is not desirable change the interval at all.
+Here is where Smart-Timer comes to the rescue. It allows replacing timer-based polling with `smartTimer` which has the same timing API as RXJS `timer` and `interval`, but thanks to Page Visibility API it will automatically prolong the intervals for you when the user has left the page for more than 15 seconds. And it will automatically emit once the user returns resulting in immediate refresh of the data. Of course you can configure the "hidden" interval manually or even to be the same as the standard one since for some requests, for example refreshing users auth token it is not desirable change the interval at all.
 
 You can read about how the smart-timer was created in [this blog post](https://blog.purestorage.com/purely-technical/notes-from-a-hackathon-how-to-cut-down-web-requests-by-70/).
 
@@ -20,7 +20,9 @@ You just need to install the package from [NPM](https://www.npmjs.com/package/@p
 npm i @pstg/smart-timer
 ```
 
-and then you are good to go
+and then you are good to go.
+
+The default entrypoint does not require `rxjs`. It returns a lightweight subscribable stream:
 
 ```typescript
 import { smartTimer } from '@pstg/smart-timer';
@@ -36,7 +38,17 @@ smartTimer(dueTime, intervalDuration).subscribe((value) => {
 });
 ```
 
-And that's it. You can use `smartTimer` exactly the same way as you would use `timer` or `interval` from RXJS.
+If your app already uses RXJS (for example an Angular app), use the RXJS adapter entrypoint to get a real RXJS `Observable` with the same API as before:
+
+```typescript
+import { smartTimer } from '@pstg/smart-timer/rxjs';
+
+smartTimer(dueTime, intervalDuration).subscribe((value) => {
+    this.timerHits += 1;
+});
+```
+
+That keeps Angular usage simple while making `rxjs` optional for apps that do not use it.
 
 ## Going Further
 

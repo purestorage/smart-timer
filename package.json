@@ -5,6 +5,18 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./rxjs": {
+      "types": "./dist/rxjs.d.ts",
+      "import": "./dist/rxjs.mjs",
+      "require": "./dist/rxjs.js"
+    }
+  },
   "files": [
     "dist"
   ],
@@ -38,5 +50,10 @@
   },
   "peerDependencies": {
     "rxjs": "^7.0.0 || ^6.0.0"
+  },
+  "peerDependenciesMeta": {
+    "rxjs": {
+      "optional": true
+    }
   }
 }
